@@ -1,0 +1,16 @@
+docker run -d --name nginx --restart unless-stopped -p 8080:80 --memory 500M --memory-reservation 256M nginx
+
+--resatart
+Valid values include:
+-------------------
+no (default): Never restart the container.
+on-failure: Only if the container fails (exits with a non-zero exit code).
+always: Always restart the container whether it succeeds or fails. Also starts the container automatically upon daemon startup.
+unless-stopped: Always restart the container whether it succeeds or fails, and on daemon startup
+unless the container is manually stopped.
+-p HOST_PORT:CONTAINER_PORT: Publish a container port. This process is necessary to access a
+port on a running container. The HOST_PORT is the port that listens on the host machine, and traffic
+to that port is mapped to the CONTAINER_PORT on the container.
+--memory MEMORY: Set a hard limit on memory usage.
+--memory-reservation MEMORY: Set a soft limit on memory usage. This limit is used only if Docker
+detects memory contention on the host. Should be lower than --memory
